@@ -1,11 +1,19 @@
 from selenium import webdriver
 import pandas as pd
+import time
+
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 website ='https://www.adamchoi.co.uk/bttsresult/detailed'
 driver = webdriver.Edge()
 driver.get(website)
 td = driver.find_element(By.XPATH, '//label[@analytics-event="All matches"]')
 td.click()
+
+# drop = Select(driver.find_element(By.ID, 'country'))
+# drop.select_by_víible_text('Spain')
+#
+# time.sleep(3)
 
 matches = driver.find_elements(By.TAG_NAME, 'tr')
 
